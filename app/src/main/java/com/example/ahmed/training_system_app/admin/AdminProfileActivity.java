@@ -1,5 +1,6 @@
 package com.example.ahmed.training_system_app.admin;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,15 +13,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.ahmed.training_system_app.R;
+import com.example.ahmed.training_system_app.web.SharedPrefManager;
+import com.example.ahmed.training_system_app.web.WebServices;
 
 public class AdminProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+
+    TextView userName,email;
+    WebServices webServices;
+    Typeface custom_font;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        webServices=new WebServices();
+        webServices.sharedPreferences=getSharedPreferences("abc",0);
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
         setContentView(R.layout.ad_activity_admin_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,7 +54,28 @@ public class AdminProfileActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        userName = (TextView) headerView.findViewById(R.id.TextView_Name_Header);
+        userName.setText(webServices.sharedPreferences.getString("user_name",""));
+        userName.setTypeface(custom_font);
+
+        email = (TextView) headerView.findViewById(R.id.TextView_Email_Header);
+        email.setText(webServices.sharedPreferences.getString("email",""));
+        email.setTypeface(custom_font);
+
+
+
+
+
+
+
+
+
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //this line for set the view form right to left;
+        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
     }
 
     @Override
@@ -90,12 +124,7 @@ public class AdminProfileActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

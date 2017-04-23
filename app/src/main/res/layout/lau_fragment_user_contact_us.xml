@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmed.training_system_app.launching.UserContactUsFragment">
+
+
+    <TextView
+        android:layoutDirection="rtl"
+        android:gravity="center"
+        android:layout_marginTop="90dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:text="من فضلك ارسل لنا مشكلتك"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextView_Please" />
+
+    <EditText
+
+        android:layout_marginTop="10dp"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="اكتب مشكلتك"
+        android:ems="10"
+        android:id="@+id/EditText_Write_Problem" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <EditText
+        android:layoutDirection="rtl"
+        android:hint="ادخل البريد الالكترونى الخاص بك"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/EditText_Email" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layoutDirection="rtl"
+        android:layout_marginTop="0dp"
+        android:text="ارسال"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Button_SendProblem" />
+</LinearLayout>

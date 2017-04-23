@@ -25,10 +25,17 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //for splash screen
+
+    //for volley
     
 
+    testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+    compile 'com.mcxiaoke.volley:library:1.0.18'
     compile 'com.android.support:support-v4:25.3.1'
-    testCompile 'junit:junit:4.12'}
+    //for email
+    compile 'de.cketti.mailto:email-intent-builder:1.0.0'
+    testCompile 'junit:junit:4.12'
+}
