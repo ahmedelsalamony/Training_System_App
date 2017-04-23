@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ahmed.training_system_app.launching.UserLoginFragment">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <EditText
+                android:id="@+id/Edit_UserName"
+                android:hint="الرقم الجامعى"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <EditText
+            android:id="@+id/Edit_Password"
+            android:hint="كلمة المرور"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="7dp"
+        android:text="دخول"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Button_Login" />
+
+    <TextView
+
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:text="تواصل معنا"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TextView_ContactUs" />
+
+
+</LinearLayout>

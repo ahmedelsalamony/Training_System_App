@@ -7,7 +7,6 @@ import android.content.Intent;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.example.ahmed.training_system_app.R;
-import com.tsengvn.typekit.Typekit;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
