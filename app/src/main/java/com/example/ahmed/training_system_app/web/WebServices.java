@@ -55,12 +55,28 @@ public class WebServices {
     public static String STUDENTGRADE = "student_grade";
     public static String SITECOMPANY = "site_company";
 
+    //  TODO training Table
+    public static String ID_Training = "id";
+    public static String UID_Taining = "uid";
+    public static String VACANCIES_Num = "vacancies_num";
+    public static String ADVERTISE_Status = "advertise_status";
+    public static String DEPARTMENT_Training = "department";
+    public static String FROM_Date = "from_date";
+    public static String TO_Date = "to_date";
+    public static String SALARY = "salary";
+
+
+
+
+
+
 
     // TODO Tag that use it to know type of WebService   >> you can here put the TAG  of your method Name ------//
     public static String TAG = "tag";
     public static String ADD_USER_TAG = "add_user";
     public static String USERLOGINTAG = "login_user";
     public static String GETADMINEMAIL = "getAdminEmail";
+    public static String ADD_ADVERTISE_TRAIN = "add_training";
 
     private RequestQueue queue;
     private String url = "http://it-training.000webhostapp.com/uploads/re_tags.php";
@@ -130,11 +146,11 @@ public class WebServices {
                         }
                     } else if (login_response.equals("incorrect password"))
                     {
-                        Toast.makeText(activity, "incorrect password please try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, "من فضلك اعد ادخال كلمة المرور الصحيحة", Toast.LENGTH_LONG).show();
                     }
                     else
                     {
-                        Toast.makeText(activity, "User Invalid. ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, " هذا المستخدم غير موجود بالنظام", Toast.LENGTH_LONG).show();
                     }
 
                 } catch (JSONException e) {
@@ -188,7 +204,7 @@ public class WebServices {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Snackbar.make(activity.findViewById(android.R.id.content), "Internet Connection", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(activity.findViewById(android.R.id.content), "الاتصال بالانترنت", Snackbar.LENGTH_LONG).show();
             }
         })
 
@@ -249,6 +265,56 @@ public class WebServices {
         };
         queue.add(request);
 
+    }
+
+
+    //----------------------------------------------------------------------------------------//
+
+    public void addTraining(final Activity activity, final int uid, final String vacancies_num, final String advertise_status,
+                        final String department, final String from_date, final String to_date, final String salary) {
+
+
+        b = new AlertDialog.Builder(activity);
+        b.setMessage("تحميل...");
+        b.setTitle("اضافة");
+
+
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                b.setCancelable(true);
+                Toast.makeText(activity, "تمت اضافة الاعلان", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Snackbar.make(activity.findViewById(android.R.id.content), "الاتصال بالانترنت", Snackbar.LENGTH_LONG).show();
+            }
+        })
+
+        {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+
+                params.put(UID_Taining, ""+uid);
+
+                params.put(VACANCIES_Num, vacancies_num);
+                params.put(ADVERTISE_Status, advertise_status);
+                params.put(DEPARTMENT, department);
+                params.put(FROM_Date, from_date);
+                params.put(TO_Date, to_date);
+                params.put(SALARY, salary);
+
+                params.put(TAG, ADD_ADVERTISE_TRAIN);
+                return params;
+            }
+        };
+        queue.add(request);
     }
 
 

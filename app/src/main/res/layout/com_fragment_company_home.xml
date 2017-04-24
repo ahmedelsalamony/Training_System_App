@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.example.ahmed.training_system_app.company.CompanyHomeFragment">
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/company_background"
+        />
+<LinearLayout
+    android:background="#8Cffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:text="اسم الشركة"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:id="@+id/TextView_Company_Name"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <TextView
+android:layout_marginTop="20dp"
+            android:text="رقم الهاتف"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:id="@+id/TextView_Company_Phone"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:text="البريد الالكترونى"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:id="@+id/TextView_Company_Email"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    
+    
+    <Button
+
+        android:layoutDirection="rtl"
+        android:textSize="20sp"
+        android:id="@+id/Button_Show_Requests"
+        android:text="مشاهدة طلبات التدريب"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layoutDirection="rtl"
+
+        android:textSize="20sp"
+        android:id="@+id/Button_Information"
+        android:text="معلوماتى"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_gravity="right"
+        android:layout_marginTop="90dp"
+        android:layout_marginRight="26dp"
+        android:layoutDirection="rtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/plus"
+        android:id="@+id/floatingActionButton" />
+</LinearLayout>
+
+
+
+
+</RelativeLayout>

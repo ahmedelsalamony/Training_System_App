@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.example.ahmed.training_system_app.R;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         addFragmentLogin();
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
     }
+
+
+
 
 
     public  void addFragmentLogin(){
