@@ -82,11 +82,10 @@ public class WebServices {
     private String url = "http://it-training.000webhostapp.com/uploads/re_tags.php";
 
     // TODO Login Method ----------------------------------//
-    public void user_login(final Activity activity, final String unique_num, final String password) {
-
+    public void user_login(final Activity activity, final String unique_num, final String password)
+    {
         sharedPreferences=activity.getSharedPreferences("abc",0);
         editor = sharedPreferences.edit();
-
         queue = Volley.newRequestQueue(activity);
         final StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
 

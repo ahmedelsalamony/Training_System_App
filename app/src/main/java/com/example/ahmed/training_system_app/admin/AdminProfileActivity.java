@@ -1,9 +1,12 @@
 package com.example.ahmed.training_system_app.admin;
 
+import android.app.Dialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +16,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ahmed.training_system_app.R;
-import com.example.ahmed.training_system_app.web.SharedPrefManager;
+import com.example.ahmed.training_system_app.launching.UserContactUsFragment;
 import com.example.ahmed.training_system_app.web.WebServices;
 
 public class AdminProfileActivity extends AppCompatActivity
@@ -32,20 +37,21 @@ public class AdminProfileActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         webServices=new WebServices();
+
         webServices.sharedPreferences=getSharedPreferences("abc",0);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
         setContentView(R.layout.ad_activity_admin_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -63,17 +69,7 @@ public class AdminProfileActivity extends AppCompatActivity
         email.setText(webServices.sharedPreferences.getString("email",""));
         email.setTypeface(custom_font);
 
-
-
-
-
-
-
-
-
         navigationView.setNavigationItemSelectedListener(this);
-
-
         //this line for set the view form right to left;
         getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
     }
@@ -118,12 +114,37 @@ public class AdminProfileActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            AddUserFragment adduser = new AddUserFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
 
-        } else if (id == R.id.nav_manage) {
-
+        }
+        else if (id == R.id.nav_gallery)
+        {
+            EditUserFragment edituser = new EditUserFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,edituser);
+            ft.commit();
+        }
+        else if (id == R.id.nav_slideshow)
+        {
+            EditAdminProfileFragment editadmin = new EditAdminProfileFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,editadmin);
+            ft.commit();
+        }
+        else if (id == R.id.nav_manage)
+        {
+            EditAdminProfileFragment editadmin = new EditAdminProfileFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,editadmin);
+            ft.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
