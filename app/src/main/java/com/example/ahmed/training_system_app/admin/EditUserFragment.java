@@ -3,12 +3,12 @@ package com.example.ahmed.training_system_app.admin;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import com.example.ahmed.training_system_app.R;
 
@@ -32,20 +32,32 @@ public class EditUserFragment extends Fragment
         rdAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "edit student", Toast.LENGTH_SHORT).show();
 
+                ad_display_Student_Fragment ad_edit_student_fragment=new ad_display_Student_Fragment();
+                FragmentManager fm=getActivity().getSupportFragmentManager();
+                FragmentTransaction ft= fm.beginTransaction();
+                ft.replace(R.id.content_admin_profile,ad_edit_student_fragment);
+                ft.commit();
             }
         });
         rdAddCompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ad_display_Company_Fragment ad_edit_student_fragment=new ad_display_Company_Fragment();
+                FragmentManager fm=getActivity().getSupportFragmentManager();
+                FragmentTransaction ft= fm.beginTransaction();
+                ft.replace(R.id.content_admin_profile,ad_edit_student_fragment);
+                ft.commit();
             }
         });
         rdAddSupervisor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                ad_display_Supervisor_Fragment ad_edit_student_fragment=new ad_display_Supervisor_Fragment();
+                FragmentManager fm=getActivity().getSupportFragmentManager();
+                FragmentTransaction ft= fm.beginTransaction();
+                ft.replace(R.id.content_admin_profile,ad_edit_student_fragment);
+                ft.commit();
             }
         });
         return mView;
