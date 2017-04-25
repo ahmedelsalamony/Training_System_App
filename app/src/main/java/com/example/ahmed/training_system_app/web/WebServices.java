@@ -39,7 +39,7 @@ import java.util.HashMap;
 public class WebServices {
 
     AlertDialog.Builder b;
-    public  SharedPreferences  sharedPreferences;
+    public SharedPreferences sharedPreferences;
     public SharedPreferences.Editor editor;
 
     // TODO Parameters Of Tables and WebService Function
@@ -67,10 +67,12 @@ public class WebServices {
     public static String SALARY = "salary";
 
 
-
-
-
-
+    // TODO reports Table
+    public static String ID_Reports = "id";
+    public static String UID_Reports = "uid";
+    public static String REPORTS = "reports";
+    public static String TRAINING_STATUS = "training_order_status";
+    public static String Reorts_SUperVisor = "supervisor_name";
 
     // TODO Tag that use it to know type of WebService   >> you can here put the TAG  of your method Name ------//
     public static String TAG = "tag";
@@ -84,6 +86,15 @@ public class WebServices {
     public static String UpdateStudentData="updateStudentData";
     public static String GetCompanyData="getCompanyData";
     public static String GetSupervisorData="getSupervisorData";
+
+    public static String ADD_TRAINING_ORDER = "add_training_order";
+    public static String GETAIIREQUESTS = "getAllRequsts";
+    public static String SEARCHCOMPANY = "search_company";
+    public static String UPDATEREPORTS = "update_reports";
+    public static String GET_ALL_COMPANY = "getAllCompany";
+    public static String GET_ALL_Students = "getAllStudents";
+    public static String UPDATEREPORTS_REPORT = "update_reports_report";
+    public static String GET_ALL_Reports = "getAllReports";
 
     private RequestQueue queue;
     private String url = "http://it-training.000webhostapp.com/uploads/re_tags.php";
@@ -105,7 +116,7 @@ public class WebServices {
 
                     if (login_response.equals("done")) {
 
-                        int  id = jsonObject.getInt("id");
+                        int id = jsonObject.getInt("id");
                         String user_name = jsonObject.getString("user_name");
                         String password = jsonObject.getString("password");
                         String email = jsonObject.getString("email");
@@ -127,35 +138,35 @@ public class WebServices {
                         editor.putString("unique_num",unique_num);
                         editor.putString("year_study",year_study);
                         editor.putString("department",department);
+                        editor.putInt("id", id);
+                        editor.putString("user_name", user_name);
+                        editor.putString("password", password);
+                        editor.putString("email", email);
+                        editor.putString("phone", phone);
+                        editor.putString("user_type", user_type);
+                        editor.putString("sup_name", supervisor_name);
+                        editor.putString("uniq_num", unique_num);
+                        editor.putString("year_study", year_study);
+                        editor.putString("department", department);
                         editor.putFloat("student_grade", Float.parseFloat(student_grade));
-                        editor.putString("site_company",site_company);
+                        editor.putString("site_company", site_company);
                         editor.commit();
-                        if (user_type.equals("admin"))
-                        {
+                        if (user_type.equals("admin")) {
                             Intent i = new Intent(activity, AdminProfileActivity.class);
                             activity.startActivity(i);
-                        }
-                        else if (user_type.equals("supervisor"))
-                        {
+                        } else if (user_type.equals("supervisor")) {
                             Intent i = new Intent(activity, SupervisorProfileActivity.class);
                             activity.startActivity(i);
-                        }
-                        else if (user_type.equals("company"))
-                        {
+                        } else if (user_type.equals("company")) {
                             Intent i = new Intent(activity, CompanyProfileActivity.class);
                             activity.startActivity(i);
-                        }
-                        else if (user_type.equals("student"))
-                        {
+                        } else if (user_type.equals("student")) {
                             Intent i = new Intent(activity, StudentProfileActivity.class);
                             activity.startActivity(i);
                         }
-                    } else if (login_response.equals("incorrect password"))
-                    {
+                    } else if (login_response.equals("incorrect password")) {
                         Toast.makeText(activity, "من فضلك اعد ادخال كلمة المرور الصحيحة", Toast.LENGTH_LONG).show();
-                    }
-                    else
-                    {
+                    } else {
                         Toast.makeText(activity, " هذا المستخدم غير موجود بالنظام", Toast.LENGTH_LONG).show();
                     }
 
@@ -168,7 +179,7 @@ public class WebServices {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Snackbar.make(activity.findViewById(android.R.id.content), "Internet Connection", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(activity.findViewById(android.R.id.content), "الاتصال بالانترنت", Snackbar.LENGTH_LONG).show();
 
             }
         }) {
@@ -248,13 +259,11 @@ public class WebServices {
         final StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
-            public void onResponse(String response)
-            {
-             requestinterface.onResponse(response);
+            public void onResponse(String response) {
+                requestinterface.onResponse(response);
             }
 
-        }, new Response.ErrorListener()
-        {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
@@ -277,7 +286,7 @@ public class WebServices {
     //----------------------------------------------------------------------------------------//
 
     public void addTraining(final Activity activity, final int uid, final String vacancies_num, final String advertise_status,
-                        final String department, final String from_date, final String to_date, final String salary) {
+                            final String department, final String from_date, final String to_date, final String salary) {
 
 
         b = new AlertDialog.Builder(activity);
@@ -307,7 +316,7 @@ public class WebServices {
                 java.util.Map<String, String> params = new HashMap<String, String>();
 
 
-                params.put(UID_Taining, ""+uid);
+                params.put(UID_Taining, "" + uid);
 
                 params.put(VACANCIES_Num, vacancies_num);
                 params.put(ADVERTISE_Status, advertise_status);
@@ -321,6 +330,301 @@ public class WebServices {
             }
         };
         queue.add(request);
+    }
+
+
+    //-----------------------------------------------------------------------------------------//
+
+
+    public void getAllRequests(final Activity activity, final request_interface object) {
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                object.onResponse(response);
+
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                object.onError();
+
+            }
+        }) {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+                params.put(TAG, GETAIIREQUESTS);
+                return params;
+            }
+
+
+        };
+        queue.add(request);
+
+    }
+
+
+    //-----------------------------------------------------//
+
+    public void searchCompany(final Activity activity, final int id, final request_interface request_interface) {
+
+
+        queue = Volley.newRequestQueue(activity);
+        final StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                request_interface.onResponse(response);
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                request_interface.onError();
+            }
+        }) {
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+                params.put(UID_Taining, "" + id);
+                params.put(TAG, SEARCHCOMPANY);
+                return params;
+            }
+
+        };
+        queue.add(request);
+
+    }
+
+
+    //-------------------------------------------------------------------//
+
+    //TODO Update reports data
+    public void updateReports(final Activity activity, final int id) {
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Toast.makeText(activity, "تم قبول الطالب", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Snackbar.make(activity.findViewById(android.R.id.content), "خطأ بالاتصال", Snackbar.LENGTH_LONG).show();
+            }
+        })
+
+        {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+
+                params.put(ID, ""+ id);
+
+                params.put(TAG, UPDATEREPORTS);
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+
+
+    //-----------------------------------------------------------------------//
+    public void addTrainingOrder(final Activity activity, final int uid, final String report, final String training_Order_status ,final String supervisorName) {
+
+
+
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Toast.makeText(activity, "لقد قمت بارسال طلب تدريب للشركات", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Snackbar.make(activity.findViewById(android.R.id.content), "الاتصال بالانترنت", Snackbar.LENGTH_LONG).show();
+            }
+        })
+
+        {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+
+                params.put(UID_Reports, "" + uid);
+                params.put(SUPERVISORNAME,  supervisorName);
+                params.put(REPORTS, report);
+                params.put(TRAINING_STATUS, training_Order_status);
+
+                params.put(TAG, ADD_TRAINING_ORDER);
+
+                return params;
+            }
+        };
+
+        queue.add(request);
+    }
+
+
+
+//---------------------------------------------------------------------------//
+public void getAllCompany(final Activity activity, final request_interface object) {
+    queue = Volley.newRequestQueue(activity);
+    StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+
+
+        @Override
+        public void onResponse(String response) {
+            object.onResponse(response);
+
+
+        }
+
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            object.onError();
+
+        }
+    }) {
+        @Override
+        protected java.util.Map<String, String> getParams() throws AuthFailureError {
+            java.util.Map<String, String> params = new HashMap<String, String>();
+
+            params.put(TAG, GET_ALL_COMPANY);
+            return params;
+        }
+
+
+    };
+    queue.add(request);
+
+}
+
+//---------------------------------------------------------------------------------------//
+
+    public void updateReportsReport(final Activity activity, final int uid, final String report, final request_interface request_interface) {
+        queue = Volley.newRequestQueue(activity);
+        final StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+request_interface.onResponse(response);
+
+            }
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                request_interface.onError();
+            }
+        })
+
+        {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+
+                params.put(UID_Reports, ""+ uid);
+                params.put(REPORTS, ""+ report);
+                params.put(TAG, UPDATEREPORTS_REPORT);
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+
+
+    //--------------------------------------------------------------------------------//
+    public void getAllStudents(final Activity activity,final String superVisorName, final request_interface object) {
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                object.onResponse(response);
+
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                object.onError();
+
+            }
+        }) {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+                params.put(SUPERVISORNAME, superVisorName);
+                params.put(TAG, GET_ALL_Students);
+                return params;
+            }
+
+
+        };
+        queue.add(request);
+
+    }
+
+//--------------------------------------------------------------------------//
+
+
+    public void getAllReports(final Activity activity, final  String SuperVisorName  ,final request_interface object) {
+        queue = Volley.newRequestQueue(activity);
+        StringRequest request = new StringRequest(com.android.volley.Request.Method.POST, url, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                object.onResponse(response);
+
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                object.onError();
+
+            }
+        }) {
+            @Override
+            protected java.util.Map<String, String> getParams() throws AuthFailureError {
+                java.util.Map<String, String> params = new HashMap<String, String>();
+
+                params.put(Reorts_SUperVisor,SuperVisorName );
+
+
+                params.put(TAG,GET_ALL_Reports );
+                return params;
+            }
+
+
+        };
+        queue.add(request);
+
     }
 
     public void getAdminData(Activity activity,final String unique_num,final request_interface requestinterface){

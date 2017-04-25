@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ahmed.training_system_app.supervisor.SuperHomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="60dp"
+        android:paddingRight="10dp"
+        android:layoutDirection="rtl"
+        android:id="@+id/textView_SupName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="اسم المشرف" />
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:layoutDirection="rtl"
+        android:id="@+id/textView_SupPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="رقم الهاتف" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:layoutDirection="rtl"
+        android:id="@+id/textView_SupEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="الايميل" />
+
+    <Button
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="80dp"
+        android:paddingRight="10dp"
+        android:layoutDirection="rtl"
+        android:layout_gravity="center"
+        android:id="@+id/button_ListStudent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="قائمة الطلاب" />
+
+
+    <Button
+
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:layoutDirection="rtl"
+        android:layout_gravity="center"
+        android:id="@+id/button_ٍShowReportsStudent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="مشاهدة التقارير" />
+
+
+</LinearLayout>

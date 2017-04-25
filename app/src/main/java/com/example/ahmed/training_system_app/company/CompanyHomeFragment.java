@@ -25,8 +25,8 @@ public class CompanyHomeFragment extends Fragment {
         private WebServices mWebServices;
 
         private Button mShowRequests;
-    private Button mInformation;
-    private FloatingActionButton mFloatButton;
+        private FloatingActionButton mFloatButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,7 +41,7 @@ public class CompanyHomeFragment extends Fragment {
         mCompanyPhone= (TextView) mView.findViewById(R.id.TextView_Company_Phone);
         mCompanyEmail= (TextView) mView.findViewById(R.id.TextView_Company_Email);
         mShowRequests= (Button) mView.findViewById(R.id.Button_Show_Requests);
-        mInformation= (Button) mView.findViewById(R.id.Button_Information);
+
         mFloatButton= (FloatingActionButton) mView.findViewById(R.id.floatingActionButton);
 
         mCompanyName.setTypeface(mCustomFont);
@@ -74,7 +74,11 @@ public class CompanyHomeFragment extends Fragment {
         mShowRequests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+              CompanySeeRequestsFragment companySeeRequestsFragment =new CompanySeeRequestsFragment();
+                FragmentManager fm =getActivity().getSupportFragmentManager();
+                FragmentTransaction ft= fm.beginTransaction();
+                ft.replace(R.id.com_activity_company_profile,companySeeRequestsFragment);
+                ft.commit();
 
                 
             }

@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmed.training_system_app.student.SendRequestFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <TextView
+            android:layoutDirection="rtl"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:text="لا يوجد اى شركات معلنة عن تدريبات فى الوقت الحالى"
+            android:id="@+id/TextView_Default"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ListView
+            android:layoutDirection="rtl"
+            android:layout_gravity="center"
+            android:id="@+id/ListView_See_Companies"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+    </RelativeLayout>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/Button_sendRequest"
+        android:layoutDirection="rtl"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:text="ارسال طلب تدريب"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

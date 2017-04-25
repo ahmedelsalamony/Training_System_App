@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmed.training_system_app.student.SendReportFragment">
+
+
+   <EditText
+
+       android:id="@+id/Edit_WriteReport"
+       android:layoutDirection="rtl"
+       android:layout_gravity="center"
+       android:textColor="#000"
+       android:hint="من فضلك اكتب تقريرك"
+       android:layout_marginTop="100dp"
+       android:layout_width="match_parent"
+       android:layout_height="150dp" />
+    <requestFocus></requestFocus>
+
+
+<Button
+    android:layout_marginTop="20dp"
+    android:textSize="20sp"
+    android:id="@+id/Button_WriteReport"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:textColor="#000"
+    android:text="ارسل التقرير"
+    />
+</LinearLayout>

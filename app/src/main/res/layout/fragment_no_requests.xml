@@ -1,0 +1,16 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ahmed.training_system_app.company.NoRequestsFragment">
+
+    <TextView
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="لا يوجد لديك اى طلبات تدريب حتى الان" />
+
+</FrameLayout>

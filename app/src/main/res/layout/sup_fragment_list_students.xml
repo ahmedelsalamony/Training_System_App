@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ahmed.training_system_app.supervisor.ListStudentsFragment">
+
+    <TableLayout
+        android:layoutDirection="rtl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TableRow>
+    <TextView
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:text="عدد الطلاب"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textView_StudentNum"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="22sp"
+            android:textColor="#000"
+            android:text="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+</TableRow>
+    </TableLayout>
+
+    <ListView
+        android:layoutDirection="rtl"
+        android:layout_marginTop="30dp"
+        android:id="@+id/ListView_See_Students"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

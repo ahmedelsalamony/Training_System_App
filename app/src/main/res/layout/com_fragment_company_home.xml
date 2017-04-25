@@ -67,17 +67,6 @@ android:layout_marginTop="20dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:layoutDirection="rtl"
-
-        android:textSize="20sp"
-        android:id="@+id/Button_Information"
-        android:text="معلوماتى"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content" />
-
     <android.support.design.widget.FloatingActionButton
         android:layout_gravity="right"
         android:layout_marginTop="90dp"
