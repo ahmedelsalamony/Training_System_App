@@ -3,6 +3,7 @@ package com.example.ahmed.training_system_app.company;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -35,16 +36,17 @@ public class CompanySeeRequestsFragment extends Fragment {
      ListView listView;
      View   mView;
      int position = 0;
-
+Typeface custom_font;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
            mView= inflater.inflate(R.layout.com_fragment_company_see_requests, container, false);
 
+        CompanyProfileActivity.sCompanyHome=3;
 
 
-
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
 
         mWebServices=new WebServices();
         mWebServices.sharedPreferences=getActivity().getSharedPreferences("abc",0);
@@ -88,7 +90,6 @@ public class CompanySeeRequestsFragment extends Fragment {
                                     userEmail.append(search_object.getString("email") + "#");
                                     userId.append(search_object.getString("id") + "#");
 
-                                    Toast.makeText(getActivity(), "\n"+userNames.toString(), Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -104,7 +105,7 @@ public class CompanySeeRequestsFragment extends Fragment {
 
 
                             } catch (JSONException e) {
-                                // Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -131,7 +132,9 @@ public class CompanySeeRequestsFragment extends Fragment {
 
                 }
             } catch (JSONException e) {
-            }
+                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
 
             }
 

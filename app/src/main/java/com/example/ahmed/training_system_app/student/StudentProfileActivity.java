@@ -13,7 +13,7 @@ import com.example.ahmed.training_system_app.R;
 import com.example.ahmed.training_system_app.launching.UserLoginFragment;
 
 public class StudentProfileActivity extends AppCompatActivity {
-
+ static  int sStudent=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,22 @@ public class StudentProfileActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        if(sStudent==1){
+            finish();
+
+        }else {
+
+
+            SendRequestFragment sendRequestFragment =new SendRequestFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.stu_activity_student_profile,sendRequestFragment);
+            ft.commit();
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

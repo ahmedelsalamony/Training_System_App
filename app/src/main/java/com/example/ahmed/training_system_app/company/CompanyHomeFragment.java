@@ -33,6 +33,8 @@ public class CompanyHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.com_fragment_company_home, container, false);
 
+        CompanyProfileActivity.sCompanyHome=1;
+
         mWebServices=new WebServices();
         mWebServices.sharedPreferences=getActivity().getSharedPreferences("abc",0);
         mCustomFont=Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
@@ -41,7 +43,7 @@ public class CompanyHomeFragment extends Fragment {
         mCompanyPhone= (TextView) mView.findViewById(R.id.TextView_Company_Phone);
         mCompanyEmail= (TextView) mView.findViewById(R.id.TextView_Company_Email);
         mShowRequests= (Button) mView.findViewById(R.id.Button_Show_Requests);
-
+          mShowRequests.setTypeface(mCustomFont);
         mFloatButton= (FloatingActionButton) mView.findViewById(R.id.floatingActionButton);
 
         mCompanyName.setTypeface(mCustomFont);

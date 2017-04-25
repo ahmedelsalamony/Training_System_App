@@ -44,6 +44,9 @@ public class UserLoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.lau_fragment_user_login, container, false);
+
+        MainActivity.sMainActivity=1;
+
         custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
         mUniqueNum = (EditText) mView.findViewById(R.id.Edit_UserName);
         mPassword = (EditText) mView.findViewById(R.id.Edit_Password);
@@ -55,6 +58,9 @@ public class UserLoginFragment extends Fragment {
         mPassword.setTypeface(custom_font);
         mContactUs.setTypeface(custom_font);
         webServices = new WebServices();
+
+
+
 
 
         mContactUs.setOnClickListener(new View.OnClickListener() {

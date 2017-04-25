@@ -35,6 +35,8 @@ public class AddRequestsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mView = inflater.inflate(R.layout.com_fragment_add_requests, container, false);
+        CompanyProfileActivity.sCompanyHome=2;
+
         mWebServices=new WebServices();
         mWebServices.sharedPreferences=getActivity().getSharedPreferences("abc",0);
 

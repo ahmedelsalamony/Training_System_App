@@ -1,5 +1,6 @@
 package com.example.ahmed.training_system_app.admin;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,7 @@ public class ad_AddCompanyFragment extends Fragment {
     EditText edtUserName,edtPassword,edtUniqueNum,edtEmail,edtPhone,edtWebSite,edtDepartment;
     WebServices webServices;
     Button btnsave;
+    Typeface custom_font;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class ad_AddCompanyFragment extends Fragment {
         edtDepartment=(EditText)mView.findViewById(R.id.AddCompany_Add_department);
         btnsave=(Button) mView.findViewById(R.id.AddStudent_btnAddCompany);
         webServices=new WebServices();
+
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

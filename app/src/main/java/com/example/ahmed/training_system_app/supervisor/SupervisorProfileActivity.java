@@ -11,6 +11,8 @@ import com.example.ahmed.training_system_app.company.CompanyHomeFragment;
 
 public class SupervisorProfileActivity extends AppCompatActivity {
 
+    static int sSupervisor=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,5 +26,19 @@ public class SupervisorProfileActivity extends AppCompatActivity {
         ft.commit();
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(sSupervisor==1){
+            finish();
+        }else {
+            SuperHomeFragment superHomeFragment =new SuperHomeFragment();
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.sup_activity_supervisor_profile,superHomeFragment);
+            ft.commit();
+
+        }
     }
 }

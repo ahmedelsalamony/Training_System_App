@@ -37,6 +37,8 @@ public class ListStudentsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         mView= inflater.inflate(R.layout.sup_fragment_list_students, container, false);
+        SupervisorProfileActivity.sSupervisor=3;
+
         mWebServices =new WebServices();
         mStudentsNames=new StringBuffer();
         idsBuffer=new StringBuffer();

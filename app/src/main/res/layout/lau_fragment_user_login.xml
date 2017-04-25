@@ -47,6 +47,8 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:textColor="#000"
+        android:textSize="20sp"
         android:layout_marginTop="12dp"
         android:text="دخول"
         android:layout_width="match_parent"
@@ -54,6 +56,9 @@
         android:id="@+id/Button_Login" />
 
     <TextView
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         android:gravity="center"
         android:layout_marginTop="70dp"
         android:text="تواصل معنا"

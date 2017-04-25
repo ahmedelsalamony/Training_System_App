@@ -1,6 +1,7 @@
 package com.example.ahmed.training_system_app.supervisor;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,6 +27,7 @@ public class SuperHomeFragment extends Fragment {
     private TextView mSupName , mSupPhone , mSupEmail;
 
     private WebServices mWebServices;
+    Typeface custom_font;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,8 +37,9 @@ public class SuperHomeFragment extends Fragment {
 
         mWebServices=new WebServices();
         mWebServices.sharedPreferences=getActivity().getSharedPreferences("abc",0);
+        SupervisorProfileActivity.sSupervisor=1;
 
-
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
         mListStudents = (Button) mView.findViewById(R.id.button_ListStudent);
         mShowReports= (Button) mView.findViewById(R.id.button_ٍShowReportsStudent);
 
@@ -47,6 +50,13 @@ public class SuperHomeFragment extends Fragment {
         mSupPhone.setText(mWebServices.sharedPreferences.getString("phone",""));
         mSupEmail.setText(mWebServices.sharedPreferences.getString("email",""));
         mSupName.setText(mWebServices.sharedPreferences.getString("user_name",""));
+
+        mListStudents.setTypeface(custom_font);
+        mShowReports.setTypeface(custom_font);
+        mSupName.setTypeface(custom_font);
+        mSupEmail.setTypeface(custom_font);
+        mSupPhone.setTypeface(custom_font);
+
 
 
         mListStudents.setOnClickListener(new View.OnClickListener() {

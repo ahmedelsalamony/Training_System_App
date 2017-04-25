@@ -1,6 +1,7 @@
 package com.example.ahmed.training_system_app.student;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -37,13 +38,15 @@ public class SendRequestFragment extends Fragment {
     private StringBuffer mCompanyNames;
     private String  mCompaniesNames[];
     private TextView mDefaultText;
-
+    Typeface custom_font;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
        mView=inflater.inflate(R.layout.stu_fragment_send_request, container, false);
+        StudentProfileActivity.sStudent=1;
+        custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font.ttf");
 
         mDefaultText= (TextView) mView.findViewById(R.id.TextView_Default);
         mListView= (ListView) mView.findViewById(R.id.ListView_See_Companies);
@@ -53,7 +56,8 @@ public class SendRequestFragment extends Fragment {
         mCompanyNames=new StringBuffer();
 
 
-
+        mDefaultText.setTypeface(custom_font);
+ mSend.setTypeface(custom_font);
         mWebService.getAllCompany(getActivity(), new request_interface() {
             @Override
             public void onResponse(String response) {

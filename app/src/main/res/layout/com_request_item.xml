@@ -5,17 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
 <android.support.v7.widget.CardView
-
+android:layout_marginTop="10dp"
    android:id="@+id/cardView_RequestsStudent"
     app:cardElevation="5dp"
+
     android:layoutDirection="rtl"
-    android:paddingRight="10dp"
-    app:cardCornerRadius="6dp"
-    app:cardMaxElevation="6dp"
+android:layout_marginRight="10dp"    app:cardCornerRadius="6dp"
+    app:cardMaxElevation="9dp"
+    android:layout_marginLeft="10dp"
     android:layout_width="match_parent"
     android:layout_height="130dp">
 
@@ -52,5 +53,7 @@
         android:id="@+id/textView_StudentEmail" />
 
 </android.support.v7.widget.CardView>
-
+<Space
+    android:layout_width="match_parent"
+    android:layout_height="8dp" />
 </LinearLayout>
