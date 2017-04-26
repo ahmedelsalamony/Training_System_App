@@ -28,6 +28,7 @@ public class AddUserFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView= inflater.inflate(R.layout.ad_add_user_fragment, container, false);
 
+        AdminProfileActivity.sAdmin=1;
 
             rdAddStudent=(RadioButton)mView.findViewById(R.id.radio_addstudent);
             rdAddCompany=(RadioButton)mView.findViewById(R.id.radio_addcompany);

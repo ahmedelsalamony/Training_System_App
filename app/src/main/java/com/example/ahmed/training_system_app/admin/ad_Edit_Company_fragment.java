@@ -33,6 +33,9 @@ public class ad_Edit_Company_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView= inflater.inflate(R.layout.ad_add_company, container, false);
         webServices=new WebServices();
+
+        AdminProfileActivity.sAdmin=7;
+
         edtUserName=(EditText)mView.findViewById(R.id.AddCompany_Add_UserName);
         edtPassword=(EditText)mView.findViewById(R.id.AddCompany_Add_Password);
         edtEmail=(EditText)mView.findViewById(R.id.AddCompany_Add_email);

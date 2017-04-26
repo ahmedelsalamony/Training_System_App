@@ -38,6 +38,9 @@ public class ad_display_Supervisor_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.ad_edit_student_listview, container, false);
+
+        AdminProfileActivity.sAdmin=11;
+
         webServices = new WebServices();
         listView = (ListView) mView.findViewById(R.id.ad_row_edit_student_listview_list);
         dataModels = new ArrayList<>();

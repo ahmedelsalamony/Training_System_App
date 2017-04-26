@@ -86,10 +86,6 @@ public class CompanyHomeFragment extends Fragment {
             }
         });
 
-
-
-
-
         return  mView;
     }
 

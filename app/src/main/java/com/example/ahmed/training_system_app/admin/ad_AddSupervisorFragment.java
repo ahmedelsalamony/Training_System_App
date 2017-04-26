@@ -27,6 +27,9 @@ public class ad_AddSupervisorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.ad_add_supervisor_fragment, container, false);
+
+        AdminProfileActivity.sAdmin=4;
+
         webServices=new WebServices();
         edtUserName=(EditText)mView.findViewById(R.id.AddSuper_Add_UserName);
         edtPassword=(EditText)mView.findViewById(R.id.AddSuper_Add_Password);

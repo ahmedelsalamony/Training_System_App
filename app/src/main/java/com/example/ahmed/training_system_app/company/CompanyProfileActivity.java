@@ -10,7 +10,7 @@ import com.example.ahmed.training_system_app.R;
 
 public class CompanyProfileActivity extends AppCompatActivity {
 
-     static  int  sCompanyHome  = 0;
+     static int  sCompanyHome  = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -25,6 +25,8 @@ public class EditUserFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView= inflater.inflate(R.layout.ad_edit_user_fragment, container, false);
 
+        AdminProfileActivity.sAdmin=5;
+
         rdAddStudent=(RadioButton)mView.findViewById(R.id.radio_editstudent);
         rdAddCompany=(RadioButton)mView.findViewById(R.id.radio_editcompany);
         rdAddSupervisor=(RadioButton)mView.findViewById(R.id.radio_editsupervisor);

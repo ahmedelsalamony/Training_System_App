@@ -30,6 +30,9 @@ public class ad_AddStudentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.ad_add_student_fragment, container, false);
+
+        AdminProfileActivity.sAdmin=2;
+
         webServices=new WebServices();
         edtUserName=(EditText) mView.findViewById(R.id.AddStudent_Edit_UserName);
         edtPassword=(EditText)mView.findViewById(R.id.AddStudent_Edit_password);

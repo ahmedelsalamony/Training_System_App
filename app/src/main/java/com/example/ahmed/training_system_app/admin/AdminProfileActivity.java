@@ -28,30 +28,33 @@ public class AdminProfileActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-
+    static int sAdmin=0;
     TextView userName,email;
     WebServices webServices;
     Typeface custom_font;
+    FragmentManager fm;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        webServices=new WebServices();
 
+
+        webServices=new WebServices();
         webServices.sharedPreferences=getSharedPreferences("abc",0);
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/font.ttf");
         setContentView(R.layout.ad_activity_admin_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        //the default fragment
+        AdminInfoFragment admininfo = new AdminInfoFragment();
+        fm=getSupportFragmentManager();
+        FragmentTransaction ft= fm.beginTransaction();
+        ft.replace(R.id.content_admin_profile,admininfo);
+        ft.commit();
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,11 +79,125 @@ public class AdminProfileActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+
+        int count = getFragmentManager().getBackStackEntryCount();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        }
+        else if(sAdmin == 14 )
+        {
+            finish();
+        }
+        else if (sAdmin == 1)
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 2 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 3 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 4 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 5 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 6 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 7 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 8 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 9 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 10 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 11 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 12 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }
+        else if (sAdmin == 13 )
+        {
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
+        }else if (sAdmin == 15 ){
+            AdminInfoFragment adduser = new AdminInfoFragment();
+            FragmentManager fm=getSupportFragmentManager();
+            FragmentTransaction ft= fm.beginTransaction();
+            ft.replace(R.id.content_admin_profile,adduser);
+            ft.commit();
         }
     }
 
@@ -125,7 +242,7 @@ public class AdminProfileActivity extends AppCompatActivity
         else if (id == R.id.nav_gallery)
         {
             EditUserFragment edituser = new EditUserFragment();
-            FragmentManager fm=getSupportFragmentManager();
+            fm=getSupportFragmentManager();
             FragmentTransaction ft= fm.beginTransaction();
             ft.replace(R.id.content_admin_profile,edituser);
             ft.commit();
@@ -133,17 +250,17 @@ public class AdminProfileActivity extends AppCompatActivity
         else if (id == R.id.nav_slideshow)
         {
             EditAdminProfileFragment editadmin = new EditAdminProfileFragment();
-            FragmentManager fm=getSupportFragmentManager();
+            fm=getSupportFragmentManager();
             FragmentTransaction ft= fm.beginTransaction();
             ft.replace(R.id.content_admin_profile,editadmin);
             ft.commit();
         }
         else if (id == R.id.nav_manage)
         {
-            EditAdminProfileFragment editadmin = new EditAdminProfileFragment();
-            FragmentManager fm=getSupportFragmentManager();
+            AdminInfoFragment admininfo = new AdminInfoFragment();
+            fm=getSupportFragmentManager();
             FragmentTransaction ft= fm.beginTransaction();
-            ft.replace(R.id.content_admin_profile,editadmin);
+            ft.replace(R.id.content_admin_profile,admininfo);
             ft.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

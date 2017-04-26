@@ -21,19 +21,19 @@ import org.json.JSONObject;
  * Created by ahmed on 4/24/2017.
  */
 
-public class EditAdminProfileFragment extends Fragment {
+public class AdminInfoFragment extends Fragment {
 
     View mView;
-    Button btnsave;
+
     EditText edtUserName,edtPassword,edtEmail,edtPhoneNumber,edtSupervisorName,edtUniqueNum,edtYearStudy,edtDepart,edtStudentGrade;
     String user_name_response,password_response,email_response,phone_response,unique_num,department;
     WebServices webServices;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView= inflater.inflate(R.layout.ad_edit_admin, container, false);
+        mView= inflater.inflate(R.layout.ad_admin_info, container, false);
 
-        AdminProfileActivity.sAdmin=15;
+        AdminProfileActivity.sAdmin=14;
 
         edtUserName=(EditText)mView.findViewById(R.id.EditAdmin_Edit_UserName);
         edtPassword=(EditText)mView.findViewById(R.id.EditAdmin_Edit_password);
@@ -41,7 +41,7 @@ public class EditAdminProfileFragment extends Fragment {
         edtPhoneNumber=(EditText)mView.findViewById(R.id.EditAdmin_Edit_phone);
         edtUniqueNum=(EditText)mView.findViewById(R.id.EditAdmin_uniquenum);
         edtDepart=(EditText)mView.findViewById(R.id.EditAdmin_depart);
-        btnsave=(Button)mView.findViewById(R.id.EditAdmin_btnAddStudent);
+
 
         webServices=new WebServices();
         webServices.sharedPreferences=getActivity().getSharedPreferences("abc",0);
@@ -78,19 +78,6 @@ public class EditAdminProfileFragment extends Fragment {
 
             @Override
             public void onError() {
-
-            }
-        });
-
-        btnsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-
-               webServices.updateAdminData(getActivity(),webServices.sharedPreferences.getInt("id",0), edtUserName.getText().toString(),
-                       edtPassword.getText().toString(),edtEmail.getText().toString(),edtPhoneNumber.getText().toString()
-                       , edtUniqueNum.getText().toString(), edtDepart.getText().toString());
-                Toast.makeText(getActivity(), ""+webServices.sharedPreferences.getInt("id",0), Toast.LENGTH_SHORT).show();
 
             }
         });
