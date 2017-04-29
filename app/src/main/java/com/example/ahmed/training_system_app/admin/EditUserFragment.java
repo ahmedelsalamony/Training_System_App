@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.example.ahmed.training_system_app.R;
@@ -19,7 +20,7 @@ import com.example.ahmed.training_system_app.R;
 public class EditUserFragment extends Fragment
 {
     View mView;
-    RadioButton rdAddStudent,rdAddCompany,rdAddSupervisor;
+    Button rdAddStudent,rdAddCompany,rdAddSupervisor;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,9 +28,9 @@ public class EditUserFragment extends Fragment
 
         AdminProfileActivity.sAdmin=5;
 
-        rdAddStudent=(RadioButton)mView.findViewById(R.id.radio_editstudent);
-        rdAddCompany=(RadioButton)mView.findViewById(R.id.radio_editcompany);
-        rdAddSupervisor=(RadioButton)mView.findViewById(R.id.radio_editsupervisor);
+        rdAddStudent=(Button)mView.findViewById(R.id.radio_editstudent);
+        rdAddCompany=(Button)mView.findViewById(R.id.radio_editcompany);
+        rdAddSupervisor=(Button)mView.findViewById(R.id.radio_editsupervisor);
 
         rdAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -119,11 +119,15 @@
         android:id="@+id/Button_addAdvertise"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:textColor="#000"
-        android:textSize="20sp"
         android:layoutDirection="rtl"
         android:layout_width="300dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonstyle1"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:textSize="20sp"
+
+        />
      </LinearLayout>
 
     </ScrollView>

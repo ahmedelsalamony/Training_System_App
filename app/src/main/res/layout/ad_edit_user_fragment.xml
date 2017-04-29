@@ -3,37 +3,59 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     >
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    >
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RadioButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="تعديل حساب الطالب"
             android:id="@+id/radio_editstudent"
             android:layoutDirection="rtl"
+            android:background="@drawable/buttonstyle1"
+            android:layout_marginBottom="10dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
             />
 
-        <RadioButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="تعديل  حساب الشركة"
             android:id="@+id/radio_editcompany"
             android:layoutDirection="rtl"
+            android:background="@drawable/buttonstyle1"
+            android:layout_marginBottom="10dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
             />
 
-        <RadioButton
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="تعديل حساب المشرف"
             android:id="@+id/radio_editsupervisor"
             android:layoutDirection="rtl"
+            android:background="@drawable/buttonstyle1"
+            android:layout_marginBottom="10dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
             />
 
     </RadioGroup>
+</LinearLayout>
 
 </LinearLayout>

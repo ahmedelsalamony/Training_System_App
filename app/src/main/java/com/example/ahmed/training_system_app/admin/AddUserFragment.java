@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import com.example.ahmed.training_system_app.R;
 public class AddUserFragment extends Fragment
 {
     View mView;
-    RadioButton rdAddStudent,rdAddCompany,rdAddSupervisor;
+    Button rdAddStudent,rdAddCompany,rdAddSupervisor;
 
     @Nullable
     @Override
@@ -30,9 +31,9 @@ public class AddUserFragment extends Fragment
 
         AdminProfileActivity.sAdmin=1;
 
-            rdAddStudent=(RadioButton)mView.findViewById(R.id.radio_addstudent);
-            rdAddCompany=(RadioButton)mView.findViewById(R.id.radio_addcompany);
-            rdAddSupervisor=(RadioButton)mView.findViewById(R.id.radio_addsupervisor);
+            rdAddStudent=(Button)mView.findViewById(R.id.radio_addstudent);
+            rdAddCompany=(Button)mView.findViewById(R.id.radio_addcompany);
+            rdAddSupervisor=(Button)mView.findViewById(R.id.radio_addsupervisor);
 
 
         rdAddCompany.setOnClickListener(new View.OnClickListener() {

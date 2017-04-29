@@ -47,13 +47,18 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:textColor="#000"
-        android:textSize="20sp"
-        android:layout_marginTop="12dp"
+
+        android:layout_margin="12dp"
         android:text="دخول"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Button_Login" />
+        android:id="@+id/Button_Login"
+        android:background="@drawable/buttonstyle1"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
     <TextView
         android:textStyle="bold"

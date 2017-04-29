@@ -96,6 +96,12 @@
                 android:layout_height="wrap_content"
                 android:text="اضافة مشرف"
                 android:id="@+id/AddSuper_btnAddSuper"
+                android:background="@drawable/buttonstyle1"
+                android:layout_marginBottom="10dp"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
                 />
         </LinearLayout>
     </ScrollView>

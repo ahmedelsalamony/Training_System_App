@@ -139,6 +139,11 @@
     android:layout_height="wrap_content"
     android:text="اضافة طالب"
     android:id="@+id/AddStudent_btnAddStudent"
+        android:background="@drawable/buttonstyle1"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
     />
 
 </LinearLayout>

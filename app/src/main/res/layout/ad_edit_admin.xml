@@ -97,6 +97,12 @@
                 android:layout_height="wrap_content"
                 android:text="تعديل"
                 android:id="@+id/EditAdmin_btnAddStudent"
+                android:background="@drawable/buttonstyle1"
+                android:layout_marginBottom="10dp"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
                 />
 
         </LinearLayout>

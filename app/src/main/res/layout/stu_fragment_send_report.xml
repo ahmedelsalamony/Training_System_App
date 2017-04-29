@@ -20,13 +20,16 @@
 
 
 <Button
-    android:layout_marginTop="20dp"
-    android:textSize="20sp"
+    android:layout_margin="20dp"
     android:id="@+id/Button_WriteReport"
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:textColor="#000"
     android:text="ارسل التقرير"
+    android:background="@drawable/buttonstyle1"
+    android:layout_marginBottom="10dp"
+    android:textColor="#fff"
+    android:textSize="20sp"
+    android:textStyle="bold"
     />
 </LinearLayout>

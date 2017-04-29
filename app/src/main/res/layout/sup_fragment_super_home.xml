@@ -45,8 +45,6 @@
     <Button
 
         android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="#000"
         android:layout_marginTop="80dp"
         android:paddingRight="10dp"
         android:layoutDirection="rtl"
@@ -54,14 +52,18 @@
         android:id="@+id/button_ListStudent"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="قائمة الطلاب" />
+        android:text="قائمة الطلاب"
+        android:background="@drawable/buttonstyle1"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
 
     <Button
 
         android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="#000"
         android:layout_marginTop="20dp"
         android:paddingRight="10dp"
         android:layoutDirection="rtl"
@@ -69,7 +71,13 @@
         android:id="@+id/button_ٍShowReportsStudent"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="مشاهدة التقارير" />
+        android:text="مشاهدة التقارير"
+        android:background="@drawable/buttonstyle1"
+        android:layout_marginBottom="10dp"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
 
 </LinearLayout>
